@@ -1,14 +1,17 @@
 package com.example;
 
+import java.util.Hashtable;
+
 public class Usuario {
     protected String nombre;
     protected String apellido;
-    protected String drCorreo;
+    protected String Email;
     
-    public Usuario(String nombre, String apellido, String drCorreo) {
+    public Usuario(String nombre, String apellido, String Email) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.drCorreo = drCorreo;
+        this.Email = Email;
+        
     }
 
     public String getNombre() {
@@ -27,15 +30,15 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getDrCorreo() {
-        return drCorreo;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setDrCorreo(String drCorreo) {
-        this.drCorreo = drCorreo;
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
     public String imprimir() {
-        return "[RecursoMuseo] " + "datos: " + this.getNombre()+this.getApellido()+this.getDrCorreo();
+        return "[Usuario] " + "datos: " + this.getNombre()+","+this.getApellido()+","+this.getEmail();
 
     }
     
