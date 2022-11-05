@@ -5,7 +5,7 @@ import java.util.Hashtable;
 
 import com.example.interfaces.Busquedas;
 
-public class GestorContactos{
+public class GestorContactos implements Busquedas{
 
     Hashtable<String, Usuario> contactos = new Hashtable<String, Usuario>( 50);
     Usuario propietario;
@@ -34,9 +34,13 @@ public class GestorContactos{
         }
         return imprimir;
     }
-    
-    public Usuario obtener(String email){
+    @Override
+    public Usuario obtenerUsuario(String email){
         return contactos.get(email);
+    }
+    @Override
+    public String datosDeUsuario(String email){
+        return obtenerUsuario(email).getApellido()+","+obtenerUsuario(email).getNombre()+","+obtenerUsuario(email).getEmail();
     }
 
     public Hashtable<String, Usuario> getContactos() {

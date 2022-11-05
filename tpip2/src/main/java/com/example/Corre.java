@@ -3,11 +3,11 @@ package com.example;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class NuevoCorreo extends Correo{
+public class Corre extends CorreoBase{
 
     ArrayList<Usuario> para = new ArrayList<Usuario>();
 
-    public NuevoCorreo(String asunto, String contenido, Usuario remitente) {
+    public Corre(String asunto, String contenido, Usuario remitente) {
         super(asunto, contenido, remitente);
     }
     
