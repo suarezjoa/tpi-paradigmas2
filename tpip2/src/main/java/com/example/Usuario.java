@@ -1,17 +1,18 @@
 package com.example;
 
-import java.util.Hashtable;
+import com.example.UbicacionCorreo.AccionesCorreo;
 
 public class Usuario {
     protected String nombre;
     protected String apellido;
     protected String Email;
+    private AccionesCorreo bandeja;
     
-    public Usuario(String nombre, String apellido, String Email) {
+    public Usuario(String nombre, String apellido, String Email, AccionesCorreo bandeja) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Email = Email;
-        
+        this.bandeja = bandeja;
     }
 
     public String getNombre() {
@@ -41,6 +42,14 @@ public class Usuario {
         return "[Usuario] " + "datos: " + this.getNombre()+","+this.getApellido()+","+this.getEmail();
 
     }
-    
+    public void enviarCorreo(Correo correoEnviado,Usuario remitente){
+        bandeja.agregarABandeja(correoEnviado);
+        correoEnviado.obtenerUsuario().bandeja.agregarABandeja(correoEnviado);
+    }
+ 
+
+    public String mostrarCorreos(){
+        return bandeja.mostrarCorreos();
+    }
 }
 

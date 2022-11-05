@@ -1,8 +1,5 @@
 package com.example;
 
-import java.util.ArrayList;
-
-
 public abstract class CorreoBase {
 
     private String asunto;
@@ -45,7 +42,9 @@ public abstract class CorreoBase {
     public void setRemitente(Usuario remitente) {
         this.remitente = remitente;
     }
-    
+    public String imprimirRemitente(){
+        return remitente.getApellido()+""+remitente.getNombre()+""+remitente.getEmail();
+    }
     
     
     

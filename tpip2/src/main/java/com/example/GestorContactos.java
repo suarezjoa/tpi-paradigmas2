@@ -1,9 +1,8 @@
 package com.example;
 
-import java.util.Collection;
 import java.util.Hashtable;
 
-import com.example.interfaces.Busquedas;
+import com.example.UbicacionCorreo.Busquedas;
 
 public class GestorContactos implements Busquedas{
 
@@ -46,6 +45,7 @@ public class GestorContactos implements Busquedas{
     public Hashtable<String, Usuario> getContactos() {
         return contactos;
     }
+    
 
 
 }
