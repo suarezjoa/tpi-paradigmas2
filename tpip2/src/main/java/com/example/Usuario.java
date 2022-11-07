@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Iterator;
+
 import com.example.UbicacionCorreo.AccionesCorreo;
 
 public class Usuario {
@@ -42,11 +44,15 @@ public class Usuario {
         return "[Usuario] " + "datos: " + this.getNombre()+","+this.getApellido()+","+this.getEmail();
 
     }
-    public void enviarCorreo(Correo correoEnviado,Usuario remitente){
+    public void enviarCorreo(Correo correoEnviado){
+
+        Iterator<Usuario> iterador = correoEnviado.getPara().iterator();
+
+        while(iterador.hasNext()) {
+            iterador.next().bandeja.agregarABandeja(correoEnviado);
+        }
         bandeja.agregarABandeja(correoEnviado);
-        correoEnviado.obtenerUsuario().bandeja.agregarABandeja(correoEnviado);
     }
- 
 
     public String mostrarCorreos(){
         return bandeja.mostrarCorreos();

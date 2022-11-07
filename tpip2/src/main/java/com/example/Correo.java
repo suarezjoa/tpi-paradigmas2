@@ -15,7 +15,13 @@ public class Correo extends CorreoBase{
     public void para(Usuario destinatarios){
         para.add(destinatarios);
     }
-    public Usuario obtenerUsuario(){
-        return (Usuario) para;
+    
+    public int cantidadReceptor(){
+        return para.size();
     }
+
+    public Set<Usuario> getPara() {
+        return para;
+    }   
+
 }

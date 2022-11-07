@@ -4,13 +4,13 @@ public abstract class CorreoBase {
 
     private String asunto;
     private String contenido;
-    private Usuario remitente;
+    private Usuario emisor;
 
 
-    public CorreoBase(String asunto, String contenido, Usuario remitente) {
+    public CorreoBase(String asunto, String contenido, Usuario emisor) {
         this.asunto = asunto;
         this.contenido = contenido;
-        this.remitente = remitente;
+        this.emisor = emisor;
     }
 
 
@@ -34,16 +34,16 @@ public abstract class CorreoBase {
     }
 
 
-    public Usuario getRemitente() {
-        return remitente;
+    public Usuario getEmisor() {
+        return emisor;
     }
 
 
-    public void setRemitente(Usuario remitente) {
-        this.remitente = remitente;
+    public void setReceptor(Usuario emisor) {
+        this.emisor = emisor;
     }
-    public String imprimirRemitente(){
-        return remitente.getApellido()+""+remitente.getNombre()+""+remitente.getEmail();
+    public String imprimirReceptor(){
+        return emisor.getApellido()+""+emisor.getNombre()+""+emisor.getEmail();
     }
     
     

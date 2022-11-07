@@ -16,7 +16,7 @@ public class BandejaDeEvios implements AccionesCorreo{
     public String mostrarCorreos(){
         String imprimir = "";
         for (Correo c : correosEnviados) {
-            imprimir += "" + c.getAsunto()+""+c.getContenido()+""+c.imprimirRemitente();
+            imprimir += "" + c.getAsunto()+""+c.getContenido()+""+c.imprimirReceptor();
         }
         return imprimir;
     }

@@ -84,12 +84,14 @@ public class AppTest
 
         contactosUsuario1.agregar(usuario2);
 
-        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario2);
+        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario1);
 
-        usuario1.enviarCorreo(correoPrueba,usuario2);
+        correoPrueba.para(usuario2);
 
-        assertEquals("mandarCoreopruebasortyvalssa@gmail.com",usuario1.mostrarCorreos());
-        assertEquals("mandarCoreopruebasortyvalssa@gmail.com",usuario2.mostrarCorreos());
+        usuario1.enviarCorreo(correoPrueba);
+
+        assertEquals("mandarCoreopruebasuarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+        assertEquals("mandarCoreopruebasuarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
 
     }
 
