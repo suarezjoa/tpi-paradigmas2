@@ -42,7 +42,7 @@ public abstract class CorreoBase {
     public void setReceptor(Usuario emisor) {
         this.emisor = emisor;
     }
-    public String imprimirReceptor(){
+    public String imprimirEmisor(){
         return emisor.getApellido()+""+emisor.getNombre()+""+emisor.getEmail();
     }
     

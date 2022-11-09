@@ -1,4 +1,4 @@
-package com.example.UbicacionCorreo;
+package com.example.interfaces;
 
 import com.example.Usuario;
 

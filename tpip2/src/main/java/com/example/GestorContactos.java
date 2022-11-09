@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Hashtable;
 
-import com.example.UbicacionCorreo.Busquedas;
+import com.example.interfaces.Busquedas;
 
 public class GestorContactos implements Busquedas{
 

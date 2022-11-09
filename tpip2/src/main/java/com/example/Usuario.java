@@ -2,15 +2,15 @@ package com.example;
 
 import java.util.Iterator;
 
-import com.example.UbicacionCorreo.AccionesCorreo;
+import com.example.interfaces.AccionesBandeja;
 
 public class Usuario {
     protected String nombre;
     protected String apellido;
     protected String Email;
-    private AccionesCorreo bandeja;
+    private AccionesBandeja bandeja;
     
-    public Usuario(String nombre, String apellido, String Email, AccionesCorreo bandeja) {
+    public Usuario(String nombre, String apellido, String Email, AccionesBandeja bandeja) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Email = Email;
@@ -49,13 +49,20 @@ public class Usuario {
         Iterator<Usuario> iterador = correoEnviado.getPara().iterator();
 
         while(iterador.hasNext()) {
+
             iterador.next().bandeja.agregarABandeja(correoEnviado);
+            
         }
+
         bandeja.agregarABandeja(correoEnviado);
+
     }
 
     public String mostrarCorreos(){
         return bandeja.mostrarCorreos();
+    }
+    public String mf(String argumento){
+        return bandeja.mostrarCorreosfiltados(argumento);
     }
 }
 
