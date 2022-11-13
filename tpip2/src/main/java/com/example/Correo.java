@@ -22,6 +22,5 @@ public class Correo extends CorreoBase{
 
     public Set<Usuario> getPara() {
         return para;
-    }   
-
+    }
 }

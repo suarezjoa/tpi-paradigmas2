@@ -2,15 +2,15 @@ package com.example;
 
 import java.util.Iterator;
 
-import com.example.interfaces.AccionesBandeja;
+import com.example.interfaces.IAccionesBandeja;
 
 public class Usuario {
     protected String nombre;
     protected String apellido;
     protected String Email;
-    private AccionesBandeja bandeja;
+    private IAccionesBandeja bandeja;
     
-    public Usuario(String nombre, String apellido, String Email, AccionesBandeja bandeja) {
+    public Usuario(String nombre, String apellido, String Email, IAccionesBandeja bandeja) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.Email = Email;
@@ -61,8 +61,8 @@ public class Usuario {
     public String mostrarCorreos(){
         return bandeja.mostrarCorreos();
     }
-    public String mf(String argumento){
-        return bandeja.mostrarCorreosfiltados(argumento);
+    public String mostrarCorreosfiltrados(Filtro filtro){
+        return bandeja.mostrarCorreosfiltrados(filtro);
     }
 }
 

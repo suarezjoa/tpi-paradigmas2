@@ -2,9 +2,9 @@ package com.example;
 
 import java.util.Hashtable;
 
-import com.example.interfaces.Busquedas;
+import com.example.interfaces.IBusquedas;
 
-public class GestorContactos implements Busquedas{
+public class GestorContactos implements IBusquedas{
 
     Hashtable<String, Usuario> contactos = new Hashtable<String, Usuario>( 50);
     Usuario propietario;

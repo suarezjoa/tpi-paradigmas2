@@ -2,7 +2,7 @@ package com.example.interfaces;
 
 import com.example.Usuario;
 
-public interface Busquedas {
+public interface IBusquedas {
     
     public Usuario obtenerUsuario(String email);
 

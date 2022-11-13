@@ -183,9 +183,47 @@ public class AppTest
 
         assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
 
-        String filtroAsunto="mandarCoreo";
+        Filtro filtro0 = new Filtro("filtro loco");
+        filtro0.generarFiltroPorAsunto("mandarCoreo");
 
-        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mf(filtroAsunto));
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+    }
+    @Test
+    public void PruebaMostrarCorreoConFiltroDeDosCampos_Filtro_EmisorYAsunto()
+
+    {
+
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+
+        GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
+
+        contactosUsuario1.agregar(usuario2);
+
+        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario1);
+        Correo correoPrueba1 = new Correo ("Viaje de vacaciones","t7", usuario1);
+
+        correoPrueba.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+        correoPrueba1.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+
+        usuario1.enviarCorreo(correoPrueba);
+        
+        usuario1.enviarCorreo(correoPrueba1);
+        
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
+
+
+
+        Filtro filtro0 = new Filtro("Filtro Por emisor");
+        filtro0.generarFiltroPorEmisor("sj@gmail.com");
+        Filtro filtro1= new Filtro("Filtro por emisor y asunto");
+        filtro1.generarFiltroPorAsuntoYEmisor("mandarCoreo","sj@gmail.com");
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro1));
     }
 
 }
