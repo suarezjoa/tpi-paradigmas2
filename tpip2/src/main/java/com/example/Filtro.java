@@ -52,19 +52,16 @@ public class Filtro {
         return filtroPorAsunto;
     }
 
-    public Predicate<Correo> generarFiltroPorAsuntoYEmisor(String argumento0,String argumento1){
+    public Predicate<Correo> generarFiltroPorAsuntoYEmisor(String asunto,String emisor){
 
-        Predicate<Correo> asunto = generarFiltroPorAsunto(argumento0);
-        Predicate<Correo> emisor = generarFiltroPorEmisor( argumento1);
-        Predicate<Correo> union = asunto.and(emisor);
+
+        Predicate<Correo> union = generarFiltroPorAsunto(asunto).and(generarFiltroPorEmisor(emisor));
         setPredicado(union);
         return union;
     }
-    public Predicate<Correo> generarFiltroPorContenidoYEmisor(String argumento0,String argumento1){
+    public Predicate<Correo> generarFiltroPorContenidoYEmisor(String contenido,String emisor){
 
-        Predicate<Correo> contenido = generarFiltroPorContenido(argumento0);
-        Predicate<Correo> emisor = generarFiltroPorEmisor( argumento1);
-        Predicate<Correo> union = contenido.and(emisor);
+        Predicate<Correo> union = generarFiltroPorContenido(contenido).and(generarFiltroPorEmisor(emisor));
         setPredicado(union);
         return union;
     }

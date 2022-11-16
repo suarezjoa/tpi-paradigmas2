@@ -70,6 +70,8 @@ public class AppTest
 
         correoPrueba.para(contactosUsuario1.obtenerUsuario(usuario2.getEmail()));
 
+        assertEquals(usuario2,correoPrueba.getPara().iterator().next());
+
     }
     @Test
     public void pruebaPrimerEnvioDeCorreo_usuario1_A_usuario2()
@@ -189,10 +191,9 @@ public class AppTest
         assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
     }
     @Test
-    public void PruebaMostrarCorreoConFiltroDeDosCampos_Filtro_EmisorYAsunto()
+    public void PruebaMostrarCorreoConFiltro_Filtro_Contenido()
 
     {
-
         Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
 
         Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
@@ -215,6 +216,69 @@ public class AppTest
 
         assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
 
+        Filtro filtro0 = new Filtro("filtro loco");
+        filtro0.generarFiltroPorContenido("prueba");
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+    }
+    @Test
+    public void PruebaMostrarCorreoConFiltro_Filtro_Emisor()
+    {
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+
+        GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
+
+        contactosUsuario1.agregar(usuario2);
+
+        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario1);
+        Correo correoPrueba1 = new Correo ("Viaje de vacaciones","t7", usuario1);
+
+        correoPrueba.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+        correoPrueba1.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+
+        usuario1.enviarCorreo(correoPrueba);
+        
+        usuario1.enviarCorreo(correoPrueba1);
+        
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
+
+        Filtro filtro0 = new Filtro("filtro loco");
+        filtro0.generarFiltroPorEmisor(usuario1.getEmail());
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+    }
+    @Test
+    public void PruebaMostrarCorreoConFiltroDeDosCampos_Filtro_EmisorYAsunto()
+
+    {
+
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+
+        GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
+
+        contactosUsuario1.agregar(usuario2);
+
+        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario1);
+        Correo correoPrueba1 = new Correo ("Viaje de vacaciones","t7", usuario1);
+
+        correoPrueba.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+        correoPrueba1.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+
+        usuario1.enviarCorreo(correoPrueba1);
+
+        usuario1.enviarCorreo(correoPrueba);
+        
+        
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
+
 
 
         Filtro filtro0 = new Filtro("Filtro Por emisor");
@@ -222,7 +286,45 @@ public class AppTest
         Filtro filtro1= new Filtro("Filtro por emisor y asunto");
         filtro1.generarFiltroPorAsuntoYEmisor("mandarCoreo","sj@gmail.com");
 
-        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
+        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro1));
+    }
+    @Test
+    public void PruebaMostrarCorreoConFiltroDeDosCampos_Filtro_ContenidoYEmisor()
+
+    {
+
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+
+        GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
+
+        contactosUsuario1.agregar(usuario2);
+
+        Correo correoPrueba = new Correo("mandarCoreo", "prueba", usuario1);
+        Correo correoPrueba1 = new Correo ("Viaje de vacaciones","t7", usuario1);
+
+        correoPrueba.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+        correoPrueba1.para(contactosUsuario1.obtenerUsuario("andresbriend@gmail.com"));
+
+        usuario1.enviarCorreo(correoPrueba1);
+
+        usuario1.enviarCorreo(correoPrueba);
+        
+        
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
+
+
+
+        Filtro filtro0 = new Filtro("Filtro Por emisor");
+        filtro0.generarFiltroPorEmisor("sj@gmail.com");
+        Filtro filtro1= new Filtro("Filtro por emisor y asunto");
+        filtro1.generarFiltroPorContenidoYEmisor("prueba","sj@gmail.com");
+
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro0));
         assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreosfiltrados(filtro1));
     }
 
