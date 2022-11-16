@@ -6,7 +6,7 @@ import com.example.interfaces.IBusquedas;
 
 public class GestorContactos implements IBusquedas{
 
-    Hashtable<String, Usuario> contactos = new Hashtable<String, Usuario>( 50);
+    Hashtable<String, Usuario> contactos = new Hashtable<String, Usuario>();
     Usuario propietario;
 
 
