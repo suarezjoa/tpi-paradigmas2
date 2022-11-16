@@ -10,16 +10,16 @@ import java.util.stream.Collectors;
 import com.example.interfaces.IAccionesBandeja;
 import com.example.interfaces.IFiltros;
 
-public class BandejaDeRecividos implements IAccionesBandeja,IFiltros{
+public class BandejaDeRecibidos implements IAccionesBandeja,IFiltros{
     
     
     ArrayList<Correo> correosRecividos = new ArrayList<Correo>();
     
 
     @Override
-    public Predicate<Correo> filtroPorAsunto(String argumento){
+    public Predicate<Correo> filtroPorAsunto(String asunto){
 
-        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(argumento);
+        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(asunto);
 
         return filtroPorAsunto;
     }
@@ -44,15 +44,15 @@ public class BandejaDeRecividos implements IAccionesBandeja,IFiltros{
     }
 
     @Override
-    public Predicate<Correo> filtroPorContenido(String filtro) {
+    public Predicate<Correo> filtroPorContenido(String cotenido) {
         
-        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(filtro);
+        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(cotenido);
         return filtroPorContenido;
     }
 
     @Override
-    public Predicate<Correo> filtroPorEmisor(String filtro) {
-        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(filtro);
+    public Predicate<Correo> filtroPorEmisor(String emisor) {
+        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(emisor);
         return filtroPorRemitente;
     }
     @Override

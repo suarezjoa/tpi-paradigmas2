@@ -9,14 +9,14 @@ import com.example.interfaces.IAccionesBandeja;
 import com.example.interfaces.IFiltros;
 
 
-public class BandejaDeEvios implements IAccionesBandeja,IFiltros{
+public class BandejaDeEnvios implements IAccionesBandeja,IFiltros{
 
     ArrayList<Correo> correosEnviados = new ArrayList<Correo>();
 
     @Override
-    public Predicate<Correo> filtroPorAsunto(String argumento){
+    public Predicate<Correo> filtroPorAsunto(String asunto){
 
-        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(argumento);
+        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(asunto);
 
         return filtroPorAsunto;
     }
@@ -41,15 +41,15 @@ public class BandejaDeEvios implements IAccionesBandeja,IFiltros{
     }
 
     @Override
-    public Predicate<Correo> filtroPorContenido(String filtro) {
+    public Predicate<Correo> filtroPorContenido(String contenido) {
         
-        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(filtro);
+        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(contenido);
         return filtroPorContenido;
     }
 
     @Override
-    public Predicate<Correo> filtroPorEmisor(String filtro) {
-        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(filtro);
+    public Predicate<Correo> filtroPorEmisor(String emisor) {
+        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(emisor);
         return filtroPorRemitente;
     }
     @Override

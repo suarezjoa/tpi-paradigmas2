@@ -32,22 +32,22 @@ public class Filtro {
         this.predicado = predicado;
     }
     
-    public Predicate<Correo> generarFiltroPorContenido(String filtro) {
+    public Predicate<Correo> generarFiltroPorContenido(String contenido) {
         
-        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(filtro);
+        Predicate<Correo> filtroPorContenido = cor -> cor.getContenido().equals(contenido);
         setPredicado(filtroPorContenido);
         return filtroPorContenido;
     }
-    public Predicate<Correo> generarFiltroPorEmisor(String filtro) {
+    public Predicate<Correo> generarFiltroPorEmisor(String emisor) {
 
-        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(filtro);
+        Predicate<Correo> filtroPorRemitente = cor -> cor.getEmisor().getEmail().equals(emisor);
         setPredicado(filtroPorRemitente);
         return filtroPorRemitente;
     }
 
-    public Predicate<Correo> generarFiltroPorAsunto(String argumento){
+    public Predicate<Correo> generarFiltroPorAsunto(String asunto){
 
-        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(argumento);
+        Predicate<Correo> filtroPorAsunto = cor -> cor.getAsunto().equals(asunto);
         setPredicado(filtroPorAsunto);
         return filtroPorAsunto;
     }

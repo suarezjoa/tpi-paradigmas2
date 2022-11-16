@@ -78,9 +78,9 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -102,13 +102,13 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
-        Usuario usuario3 = new Usuario("Carla", "perez", "calitarperez@gmail.com", new BandejaDeRecividos());
+        Usuario usuario3 = new Usuario("Carla", "perez", "calitarperez@gmail.com", new BandejaDeRecibidos());
 
-        Usuario usuario4 = new Usuario("valentina", "regidor", "valenrigi@gmail.com", new BandejaDeRecividos());
+        Usuario usuario4 = new Usuario("valentina", "regidor", "valenrigi@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -135,9 +135,9 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -163,9 +163,9 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -194,9 +194,9 @@ public class AppTest
     public void PruebaMostrarCorreoConFiltro_Filtro_Contenido()
 
     {
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -224,9 +224,9 @@ public class AppTest
     @Test
     public void PruebaMostrarCorreoConFiltro_Filtro_Emisor()
     {
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -256,9 +256,9 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
@@ -275,9 +275,9 @@ public class AppTest
         usuario1.enviarCorreo(correoPrueba);
         
         
-        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario1.mostrarCorreos());
 
-        assertEquals("A-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.comA-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
+        assertEquals("A-Viaje de vacaciones C-t7 E-suarezjoaquinsj@gmail.comA-mandarCoreo C-prueba E-suarezjoaquinsj@gmail.com",usuario2.mostrarCorreos());
 
 
 
@@ -294,9 +294,9 @@ public class AppTest
 
     {
 
-        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEvios());
+        Usuario usuario1 = new Usuario("joaquin","suarez","sj@gmail.com", new BandejaDeEnvios());
 
-        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecividos());
+        Usuario usuario2 = new Usuario("andres","briend","andresbriend@gmail.com", new BandejaDeRecibidos());
 
         GestorContactos contactosUsuario1 = new GestorContactos(usuario1);
 
